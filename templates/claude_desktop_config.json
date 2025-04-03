@@ -1,0 +1,51 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-filesystem\\dist\\index.js",
+        "C:\\Users\\YourUsername\\Documents",
+        "C:\\Users\\YourUsername\\Downloads"
+      ],
+      "env": {
+        "APPDATA": "C:\\Users\\YourUsername\\AppData\\Roaming\\",
+        "PATH": "C:\\Program Files\\nodejs",
+        "NODE_PATH": "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules"
+      }
+    },
+    "github": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-github\\dist\\index.js"
+      ],
+      "env": {
+        "APPDATA": "C:\\Users\\YourUsername\\AppData\\Roaming\\",
+        "PATH": "C:\\Program Files\\nodejs",
+        "NODE_PATH": "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules",
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_token_here"
+      }
+    },
+    "memory": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-memory\\dist\\index.js"
+      ],
+      "env": {
+        "APPDATA": "C:\\Users\\YourUsername\\AppData\\Roaming\\",
+        "PATH": "C:\\Program Files\\nodejs",
+        "NODE_PATH": "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules"
+      }
+    },
+    "mcp-installer": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules\\@anaisbetts\\mcp-installer\\dist\\index.js"
+      ],
+      "env": {
+        "APPDATA": "C:\\Users\\YourUsername\\AppData\\Roaming\\",
+        "PATH": "C:\\Program Files\\nodejs",
+        "NODE_PATH": "C:\\Users\\YourUsername\\AppData\\Roaming\\npm\\node_modules"
+      }
+    }
+  }
+}
