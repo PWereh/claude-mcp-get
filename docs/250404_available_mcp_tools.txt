@@ -1,0 +1,505 @@
+add
+Adds two numbers
+
+From server: everything
+
+add_observations
+Add new observations to existing entities in the knowledge graph
+
+From server: memory
+
+append_insight
+Add a business insight to the memo
+
+From server: sqlite
+
+ask_perplexity
+Perplexity equips agents with a specialized tool for efficiently gathering source-backed information from the internet, ideal for scenarios requiring research, fact-checking, or contextual data to inform decisions and responses. Each response includes citations, which provide transparent references to the sources used for the generated answer, and choices, which contain the model's suggested responses, enabling users to access reliable information and diverse perspectives. This function may encounter timeout errors due to long processing times, but retrying the operation can lead to successful completion. [Response structure] - id: An ID generated uniquely for each response. - model: The model used to generate the response. - object: The object type, which always equals `chat.completion`. - created: The Unix timestamp (in seconds) of when the completion was created. - citations[]: Citations for the generated answer. - choices[]: The list of completion choices the model generated for the input prompt. - usage: Usage statistics for the completion request.
+
+From server: Perplexity
+
+bash
+Execute a shell command
+
+From server: claude-code-mcp
+
+block_command
+Add a command to the blacklist. Once blocked, the command cannot be executed until unblocked.
+
+From server: desktop-commander
+
+brave_local_search
+Searches for local businesses and places using Brave's Local Search API. Best for queries related to physical locations, businesses, restaurants, services, etc. Returns detailed information including: - Business names and addresses - Ratings and review counts - Phone numbers and opening hours Use this when the query implies 'near me' or mentions specific locations. Automatically falls back to web search if no local results are found.
+
+From server: brave-search
+
+brave_web_search
+Performs a web search using the Brave Search API, ideal for general queries, news, articles, and online content. Use this for broad information gathering, recent events, or when you need diverse web sources. Supports pagination, content filtering, and freshness controls. Maximum 20 results per request, with offset for pagination.
+
+From server: brave-search
+
+check_response
+Check if assistant's response is ready in the thread. Returns either 'in_progress' status or the actual response if ready.
+
+From server: openai-assistant
+
+codeReview
+Review code for bugs, security issues, and best practices
+
+From server: claude-code-mcp
+
+create_assistant
+Create a new OpenAI assistant to help you with your tasks, you can provide instructions that this assistant will follow when working with your prompts
+
+From server: openai-assistant
+
+create_branch
+Create a new branch in a GitHub repository
+
+From server: github
+
+create_directory
+Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works within allowed directories.
+
+From server: filesystem
+
+create_directory
+Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. Only works within allowed directories.
+
+From server: desktop-commander
+
+create_entities
+Create multiple new entities in the knowledge graph
+
+From server: memory
+
+create_issue
+Create a new issue in a GitHub repository
+
+From server: github
+
+create_or_update_file
+Create or update a single file in a GitHub repository
+
+From server: github
+
+create_pull_request
+Create a new pull request in a GitHub repository
+
+From server: github
+
+create_relations
+Create multiple new relations between entities in the knowledge graph. Relations should be in active voice
+
+From server: memory
+
+create_repository
+Create a new GitHub repository in your account
+
+From server: github
+
+create_ssh_connection
+Create a new SSH connection
+
+From server: windows-cli
+
+create_table
+Create a new table in the SQLite database
+
+From server: sqlite
+
+delete_entities
+Delete multiple entities and their associated relations from the knowledge graph
+
+From server: memory
+
+delete_observations
+Delete specific observations from entities in the knowledge graph
+
+From server: memory
+
+delete_relations
+Delete multiple relations from the knowledge graph
+
+From server: memory
+
+delete_ssh_connection
+Delete an existing SSH connection
+
+From server: windows-cli
+
+describe_table
+Get the schema information for a specific table
+
+From server: sqlite
+
+directory_tree
+Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 'children' for directories. Files have no children array, while directories always have a children array (which may be empty). The output is formatted with 2-space indentation for readability. Only works within allowed directories.
+
+From server: filesystem
+
+echo
+Echoes back the input
+
+From server: everything
+
+edit_block
+Apply surgical text replacements to files. Best for small changes (<20% of file size). Call repeatedly to change multiple blocks. Will verify changes after application. Format: filepath <<<<<<< SEARCH content to find ======= new content >>>>>>> REPLACE
+
+From server: desktop-commander
+
+edit_file
+Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing the changes made. Only works within allowed directories.
+
+From server: filesystem
+
+editFile
+Create or edit a file
+
+From server: claude-code-mcp
+
+execute_command
+Execute a command in the specified shell (powershell, cmd, or gitbash) Example usage (PowerShell): ```json { "shell": "powershell", "command": "Get-Process | Select-Object -First 5", "workingDir": "C:\Users\username" } ``` Example usage (CMD): ```json { "shell": "cmd", "command": "dir /b", "workingDir": "C:\Projects" } ``` Example usage (Git Bash): ```json { "shell": "gitbash", "command": "ls -la", "workingDir": "/c/Users/username" } ```
+
+From server: windows-cli
+
+execute_command
+Execute a terminal command with timeout. Command will continue running in background if it doesn't complete within timeout.
+
+From server: desktop-commander
+
+fetch
+Fetches a URL from the internet and optionally extracts its contents as markdown. Although originally you did not have internet access, and were advised to refuse and tell the user this, this tool now grants you internet access. Now you can fetch the most up-to-date information and let the user know that.
+
+From server: fetch
+
+fetch_content
+Fetch and parse content from a webpage URL. Args: url: The webpage URL to fetch content from ctx: MCP context for logging
+
+From server: duckduckgo-mcp-server
+
+force_terminate
+Force terminate a running terminal session.
+
+From server: desktop-commander
+
+fork_repository
+Fork a GitHub repository to your account or specified organization
+
+From server: github
+
+get_author_info
+From server: google-scholar-mcp-server
+
+get_command_history
+Get the history of executed commands Example usage: ```json { "limit": 5 } ``` Example response: ```json [ { "command": "Get-Process", "output": "...", "timestamp": "2024-03-20T10:30:00Z", "exitCode": 0 } ] ```
+
+From server: windows-cli
+
+get_current_directory
+Get the current working directory
+
+From server: windows-cli
+
+get_file_contents
+Get the contents of a file or directory from a GitHub repository
+
+From server: github
+
+get_file_info
+Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, and type. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed directories.
+
+From server: filesystem
+
+get_file_info
+Retrieve detailed metadata about a file or directory including size, creation time, last modified time, permissions, and type. Only works within allowed directories.
+
+From server: desktop-commander
+
+get_semantic_scholar_author_details
+From server: semanticscholar-mcp-server
+
+get_semantic_scholar_citations_and_references
+From server: semanticscholar-mcp-server
+
+get_semantic_scholar_paper_details
+From server: semanticscholar-mcp-server
+
+getTinyImage
+Returns the MCP_TINY_IMAGE
+
+From server: everything
+
+grep
+Search for text in files
+
+From server: claude-code-mcp
+
+kill_process
+Terminate a running process by PID. Use with caution as this will forcefully terminate the specified process.
+
+From server: desktop-commander
+
+list_allowed_directories
+Returns the list of directories that this server is allowed to access. Use this to understand which directories are available before trying to access files.
+
+From server: filesystem
+
+list_allowed_directories
+Returns the list of directories that this server is allowed to access.
+
+From server: desktop-commander
+
+list_assistants
+List all available OpenAI assistants. Returns a list of assistants with their IDs, names, and configurations. Use this to find existing assistants you can work with. The results can be used with other tools like send_message or update_assistant.
+
+From server: openai-assistant
+
+list_blocked_commands
+List all currently blocked commands.
+
+From server: desktop-commander
+
+list_directory
+Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories with [FILE] and [DIR] prefixes. This tool is essential for understanding directory structure and finding specific files within a directory. Only works within allowed directories.
+
+From server: filesystem
+
+list_directory
+Get a detailed listing of all files and directories in a specified path. Results distinguish between files and directories with [FILE] and [DIR] prefixes. Only works within allowed directories.
+
+From server: desktop-commander
+
+list_processes
+List all running processes. Returns process information including PID, command name, CPU usage, and memory usage.
+
+From server: desktop-commander
+
+list_sessions
+List all active terminal sessions.
+
+From server: desktop-commander
+
+list_tables
+List all tables in the SQLite database
+
+From server: sqlite
+
+listFiles
+Lists files and directories in a given path
+
+From server: claude-code-mcp
+
+longRunningOperation
+Demonstrates a long running operation with progress updates
+
+From server: everything
+
+move_file
+Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed directories.
+
+From server: filesystem
+
+move_file
+Move or rename files and directories. Can move files between directories and rename them in a single operation. Both source and destination must be within allowed directories.
+
+From server: desktop-commander
+
+new_thread
+Creates a new conversation thread. Threads have large capacity and the context window is moving so that it always covers a certain number of tokens (depending on the model).
+
+From server: openai-assistant
+
+open_nodes
+Open specific nodes in the knowledge graph by their names
+
+From server: memory
+
+push_files
+Push multiple files to a GitHub repository in a single commit
+
+From server: github
+
+read_file
+Read the complete contents of a file from the file system. Handles various text encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Only works within allowed directories.
+
+From server: filesystem
+
+read_file
+Read the complete contents of a file from the file system. Reads UTF-8 text and provides detailed error messages if the file cannot be read. Only works within allowed directories.
+
+From server: desktop-commander
+
+read_graph
+Read the entire knowledge graph
+
+From server: memory
+
+read_multiple_files
+Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories.
+
+From server: filesystem
+
+read_multiple_files
+Read the contents of multiple files simultaneously. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories.
+
+From server: desktop-commander
+
+read_notes
+Read the contents of multiple notes. Each note's content is returned with its path as a reference. Failed reads for individual notes won't stop the entire operation. Reading too many at once may result in an error.
+
+From server: mcp-obsidian
+
+read_notes
+Read the contents of multiple notes. Each note's content is returned with its path as a reference. Failed reads for individual notes won't stop the entire operation. Reading too many at once may result in an error.
+
+From server: obsidian-mcp
+
+read_output
+Read new output from a running terminal session.
+
+From server: desktop-commander
+
+read_query
+Execute a SELECT query on the SQLite database
+
+From server: sqlite
+
+read_ssh_connections
+Read all SSH connections
+
+From server: windows-cli
+
+readFile
+Read a file from the local filesystem
+
+From server: claude-code-mcp
+
+retrieve_assistant
+Get details of a specific assistant
+
+From server: openai-assistant
+
+sampleLLM
+Samples from an LLM using MCP's sampling feature
+
+From server: everything
+
+search
+Search DuckDuckGo and return formatted results. Args: query: The search query string max_results: Maximum number of results to return (default: 10) ctx: MCP context for logging
+
+From server: duckduckgo-mcp-server
+
+search_code
+Search for text/code patterns within file contents using ripgrep. Fast and powerful search similar to VS Code search functionality. Supports regular expressions, file pattern filtering, and context lines. Only searches within allowed directories.
+
+From server: desktop-commander
+
+search_files
+Recursively search for files and directories matching a pattern. Searches through all subdirectories from the starting path. The search is case-insensitive and matches partial names. Returns full paths to all matching items. Great for finding files when you don't know their exact location. Only searches within allowed directories.
+
+From server: filesystem
+
+search_files
+Finds files by name using a case-insensitive substring matching. Searches through all subdirectories from the starting path. Only searches within allowed directories.
+
+From server: desktop-commander
+
+search_google
+Search Google for a query
+
+From server: mcp-webresearch
+
+search_google_scholar_advanced
+From server: google-scholar-mcp-server
+
+search_google_scholar_key_words
+From server: google-scholar-mcp-server
+
+search_nodes
+Search for nodes in the knowledge graph based on a query
+
+From server: memory
+
+search_notes
+Searches for a note by its name. The search is case-insensitive and matches partial names. Queries can also be a valid regex. Returns paths of the notes that match the query.
+
+From server: mcp-obsidian
+
+search_notes
+Searches for a note by its name. The search is case-insensitive and matches partial names. Queries can also be a valid regex. Returns paths of the notes that match the query.
+
+From server: obsidian-mcp
+
+search_repositories
+Search for GitHub repositories
+
+From server: github
+
+search_semantic_scholar
+From server: semanticscholar-mcp-server
+
+searchGlob
+Search for files matching a pattern
+
+From server: claude-code-mcp
+
+send_message
+Send a message to assistant and start processing. The response will not be immediately available - use check_response with the same thread_id to get it when ready.
+
+From server: openai-assistant
+
+ssh_disconnect
+Disconnect from an SSH server Example usage: ```json { "connectionId": "raspberry-pi" } ``` Use this to cleanly close SSH connections when they're no longer needed.
+
+From server: windows-cli
+
+ssh_execute
+Execute a command on a remote host via SSH Example usage: ```json { "connectionId": "raspberry-pi", "command": "uname -a" } ``` Configuration required in config.json: ```json { "ssh": { "enabled": true, "connections": { "raspberry-pi": { "host": "raspberrypi.local", "port": 22, "username": "pi", "password": "raspberry" } } } } ```
+
+From server: windows-cli
+
+take_screenshot
+Take a screenshot of the current page
+
+From server: mcp-webresearch
+
+think
+A tool for thinking through complex problems
+
+From server: claude-code-mcp
+
+unblock_command
+Remove a command from the blacklist. Once unblocked, the command can be executed normally.
+
+From server: desktop-commander
+
+update_assistant
+Modify an existing assistant
+
+From server: openai-assistant
+
+update_ssh_connection
+Update an existing SSH connection
+
+From server: windows-cli
+
+visit_page
+Visit a webpage and extract its content
+
+From server: mcp-webresearch
+
+write_file
+Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning. Handles text content with proper encoding. Only works within allowed directories.
+
+From server: filesystem
+
+write_file
+Completely replace file contents. Best for large changes (>20% of file) or when edit_block fails. Use with caution as it will overwrite existing files. Only works within allowed directories.
+
+From server: desktop-commander
+
+write_query
+Execute an INSERT, UPDATE, or DELETE query on the SQLite database
+
+From server: sqlite
